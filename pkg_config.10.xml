@@ -143,7 +143,7 @@
 		</descr>
 		<website>http://haproxy.1wt.eu/</website>
 		<category>Services</category>
-		<version>0.31</version>
+		<version>0.32</version>
 		<status>Release</status>
 		<required_version>2.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/haproxy1_5/haproxy.xml</config_file>
@@ -171,7 +171,7 @@
 		</descr>
 		<website>http://haproxy.1wt.eu/</website>
 		<category>Services</category>
-		<version>0.31</version>
+		<version>0.32</version>
 		<status>Release</status>
 		<required_version>2.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/haproxy-devel/haproxy.xml</config_file>
@@ -179,13 +179,13 @@
 		<run_depends>sbin/haproxy:net/haproxy-devel</run_depends>
 		<port_category>net</port_category>
 		<conflicts>haproxy</conflicts>
-		<depends_on_package_pbi>haproxy-devel-1.6-dev2-##ARCH##.pbi</depends_on_package_pbi>
+		<depends_on_package_pbi>haproxy-devel-1.6-dev4-##ARCH##.pbi</depends_on_package_pbi>
 		<build_pbi>
 			<ports_before>security/openssl</ports_before>
 			<custom_name>haproxy-devel</custom_name>
 			<port>net/haproxy-devel</port>
 		</build_pbi>
-		<build_options>WITH_OPENSSL_PORT=yes;net_haproxy-devel_UNSET_FORCE=DPCRE;net_haproxy-devel_SET_FORCE=OPENSSL SPCRE LUA</build_options>
+		<build_options>WITH_OPENSSL_PORT=yes;net_haproxy-devel_UNSET_FORCE=DPCRE;net_haproxy-devel_SET_FORCE=OPENSSL SPCRE LUA CPU_AFFINITY</build_options>
 	</package>
 	<package>
 		<name>Apache with mod_security-dev</name>
@@ -325,7 +325,7 @@
 		<pkginfolink/>
 		<port_category>ftp</port_category>
 		<config_file>https://packages.pfsense.org/packages/config/tftp2/tftp.xml</config_file>
-		<version>2.2.1</version>
+		<version>2.2.2</version>
 		<status>Stable</status>
 		<required_version>2.2</required_version>
 		<configurationfile>tftp.xml</configurationfile>
@@ -373,8 +373,8 @@
 		<port_category>www</port_category>
 		<pkginfolink>https://doc.pfsense.org/index.php/vhosts</pkginfolink>
 		<config_file>https://packages.pfsense.org/packages/config/vhosts/vhosts.xml</config_file>
-		<version>0.8.2</version>
-		<status>ALPHA</status>
+		<version>0.8.3</version>
+		<status>Beta</status>
 		<required_version>2.2</required_version>
 		<maintainer>markjcrane@gmail.com</maintainer>
 		<configurationfile>vhosts.xml</configurationfile>
@@ -395,7 +395,7 @@
 		</build_pbi>
 		<build_options>barnyard2_UNSET_FORCE=ODBC PGSQL PRELUDE;barnyard2_SET_FORCE=GRE IPV6 MPLS MYSQL PORT_PCAP BRO;snort_SET_FORCE=BARNYARD PERFPROFILE SOURCEFIRE GRE IPV6 NORMALIZER APPID;snort_UNSET_FORCE=PULLEDPORK FILEINSPECT HA</build_options>
 		<config_file>https://packages.pfsense.org/packages/config/snort/snort.xml</config_file>
-		<version>3.2.8.2</version>
+		<version>3.2.8.3</version>
 		<required_version>2.2</required_version>
 		<status>Stable</status>
 		<configurationfile>/snort.xml</configurationfile>
@@ -566,7 +566,7 @@
 		<build_pbi>
 			<port>net/openbgpd</port>
 		</build_pbi>
-		<version>0.9.3.7</version>
+		<version>0.9.3.8</version>
 		<status>STABLE</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/OpenBGPD_package</pkginfolink>
 		<required_version>2.2</required_version>
@@ -578,7 +578,7 @@
 		<descr>LightSquid is a high performance web proxy reporting tool. Proxy realtime statistics (SQStat). Requires Squid HTTP proxy.</descr>
 		<website>http://lightsquid.sf.net/</website>
 		<category>Network Report</category>
-		<version>2.41</version>
+		<version>2.42</version>
 		<maintainer>dv_serg@mail.ru</maintainer>
 		<port_category>www</port_category>
 		<run_depends>libexec/lightsquid/ip2name.list:www/lightsquid</run_depends>
@@ -593,6 +593,7 @@
 		<config_file>https://packages.pfsense.org/packages/config/lightsquid/lightsquid.xml</config_file>
 		<configurationfile>lightsquid.xml</configurationfile>
 		<noembedded>true</noembedded>
+		<after_install_info>Please visit Status - Squid Proxy Reports - Settings and read the configuration and usage instructions.</after_install_info>
 	</package>
 	<package>
 		<name>Sarg</name>
@@ -606,7 +607,7 @@
 		<config_file>https://packages.pfsense.org/packages/config/sarg/sarg.xml</config_file>
 		<pkginfolink>https://forum.pfsense.org/index.php/topic,47765.0.html</pkginfolink>
 		<depends_on_package_pbi>sarg-2.3.9-##ARCH##.pbi</depends_on_package_pbi>
-		<version>0.6.6</version>
+		<version>0.6.7</version>
 		<status>Release</status>
 		<required_version>2.2</required_version>
 		<port_category>www</port_category>
@@ -688,7 +689,7 @@
 		<build_pbi>
 			<port>net/vnstat</port>
 		</build_pbi>
-		<version>1.12.7</version>
+		<version>1.12.8</version>
 		<status>Stable</status>
 		<required_version>2.2</required_version>
 		<maintainer>crazypark2@yahoo.dk</maintainer>
@@ -701,7 +702,7 @@
 		<descr>pfSense version of TinyDNS which features failover host support.</descr>
 		<website>http://cr.yp.to/djbdns.html</website>
 		<category>Services</category>
-		<version>1.0.6.23</version>
+		<version>1.0.6.24</version>
 		<status>Beta</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Tinydns_package</pkginfolink>
 		<required_version>2.2</required_version>
@@ -814,7 +815,7 @@
 		<descr>Network UPS Tools.</descr>
 		<website>http://www.networkupstools.org/</website>
 		<category>Network Management</category>
-		<version>2.1.0</version>
+		<version>2.1.1</version>
 		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<maintainer>rswagoner@gmail.com</maintainer>
@@ -882,7 +883,7 @@
 		<website>http://bsdforge.com/projects/source/net/widentd/</website>
 		<category>Services</category>
 		<depends_on_package_pbi>widentd-1.03_2-##ARCH##.pbi</depends_on_package_pbi>
-		<version>1.0.4</version>
+		<version>1.0.5</version>
 		<status>Stable</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Widentd_package</pkginfolink>
 		<required_version>2.2</required_version>
@@ -907,7 +908,7 @@
 		</descr>
 		<pkginfolink>https://doc.pfsense.org/index.php/FreeRADIUS_2.x_package</pkginfolink>
 		<category>System</category>
-		<version>1.6.15</version>
+		<version>1.6.16</version>
 		<status>RC1</status>
 		<required_version>2.2</required_version>
 		<maintainer>nachtfalkeaw@web.de</maintainer>
@@ -951,7 +952,7 @@
 		<descr>SSL encryption wrapper between remote client and local or remote servers.</descr>
 		<category>Network Management</category>
 		<depends_on_package_pbi>stunnel-5.20-##ARCH##.pbi</depends_on_package_pbi>
-		<version>5.20.2</version>
+		<version>5.20.3</version>
 		<status>Stable</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Stunnel_package</pkginfolink>
 		<required_version>2.2</required_version>
@@ -1052,7 +1053,7 @@
 		<pkginfolink>https://forum.pfsense.org/index.php/topic,48347.0.html</pkginfolink>
 		<website>http://www.squid-cache.org/</website>
 		<category>Network</category>
-		<version>0.3.9.2</version>
+		<version>0.4.2</version>
 		<status>beta</status>
 		<required_version>2.2</required_version>
 		<maintainer>marcellocoutinho@gmail.com fernando@netfilter.com.br seth.mos@dds.nl mfuchs77@googlemail.com jimp@pfsense.org</maintainer>
@@ -1160,7 +1161,7 @@
 		<website>http://www.squidGuard.org/</website>
 		<maintainer>gugabsd@mundounix.com.br</maintainer>
 		<category>Network Management</category>
-		<version>1.5.7</version>
+		<version>1.5.8</version>
 		<status>Beta</status>
 		<required_version>2.2</required_version>
 		<depends_on_package_pbi>squidguard-devel-1.5_1-##ARCH##.pbi</depends_on_package_pbi>
@@ -1338,7 +1339,7 @@
 			]]>
 		</descr>
 		<category>Enhancements</category>
-		<version>1.0.5</version>
+		<version>1.0.6</version>
 		<status>Beta</status>
 		<required_version>2.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/sshdcond/sshdcond.xml</config_file>
@@ -1479,7 +1480,7 @@
 		<build_pbi>
 			<port>security/tinc</port>
 		</build_pbi>
-		<version>1.2.3</version>
+		<version>1.2.4</version>
 		<status>ALPHA</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/tinc_package</pkginfolink>
 		<required_version>2.2</required_version>
@@ -1497,8 +1498,8 @@
 		<website>http://www.balabit.com/network-security/syslog-ng/</website>
 		<descr>Syslog-ng syslog server. This service is not intended to replace the default pfSense syslog server but rather acts as an independent syslog server.</descr>
 		<category>Services</category>
-		<version>1.1</version>
-		<status>ALPHA</status>
+		<version>1.1.1</version>
+		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<depends_on_package_pbi>syslog-ng-3.6.2_3-##ARCH##.pbi</depends_on_package_pbi>
 		<port_category>sysutils</port_category>
@@ -1525,7 +1526,7 @@
 		<website>http://www.zabbix.com/product.php</website>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix-agent-lts/zabbix-agent-lts.xml</config_file>
-		<version>0.8.7</version>
+		<version>0.8.8</version>
 		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<configurationfile>zabbix-agent-lts.xml</configurationfile>
@@ -1552,7 +1553,7 @@
 		<website>http://www.zabbix.com/product.php</website>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix-proxy-lts/zabbix-proxy-lts.xml</config_file>
-		<version>0.8.7</version>
+		<version>0.8.8</version>
 		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<configurationfile>zabbix-proxy-lts.xml</configurationfile>
@@ -1579,7 +1580,7 @@
 		<website>http://www.zabbix.com/product.php</website>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix2/zabbix2-agent.xml</config_file>
-		<version>zabbix24-agent-2.4.3 pkg v0.8.3</version>
+		<version>0.8.4</version>
 		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<configurationfile>zabbix2-agent.xml</configurationfile>
@@ -1604,7 +1605,7 @@
 		<website>http://www.zabbix.com/product.php</website>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix2/zabbix2-proxy.xml</config_file>
-		<version>zabbix24-proxy-2.4.3 pkg v0.8.3</version>
+		<version>0.8.4</version>
 		<status>BETA</status>
 		<required_version>2.2</required_version>
 		<configurationfile>zabbix2-proxy.xml</configurationfile>
@@ -1623,7 +1624,7 @@
 		<descr>sudo allows delegation of privileges to users in the shell so commands can be run as other users, such as root.</descr>
 		<website>http://www.sudo.ws/</website>
 		<category>Security</category>
-		<version>0.2.7</version>
+		<version>0.2.8</version>
 		<status>Beta</status>
 		<required_version>2.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/sudo/sudo.xml</config_file>
@@ -1706,7 +1707,7 @@
 		<website>http://suricata-ids.org/</website>
 		<descr>High Performance Network IDS, IPS and Security Monitoring engine by OISF.</descr>
 		<category>Security</category>
-		<version>2.1.6</version>
+		<version>2.1.8</version>
 		<status>Stable</status>
 		<required_version>2.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/suricata/suricata.xml</config_file>
@@ -1726,7 +1727,7 @@
 		<descr>Basic FTP Client Proxy using ftp-proxy from FreeBSD.</descr>
 		<pkginfolink>https://forum.pfsense.org/index.php?topic=89841.0</pkginfolink>
 		<maintainer>jimp@pfsense.org</maintainer>
-		<version>0.2.2</version>
+		<version>0.3</version>
 		<category>Services</category>
 		<status>Beta</status>
 		<port_category>ftp</port_category>

@@ -209,7 +209,11 @@ function squid_resync_reverse() {
 		}
 
 		if (($settings['reverse_owa'] == 'on') && (!empty($settings['reverse_owa_ip'])) && ($settings['reverse_owa_autodiscover'] == 'on')) {
-			$reverse_external_domain = strstr($settings['reverse_external_fqdn'], '.');
+			if (substr_count($settings['reverse_external_fqdn'], ".") > 1) {
+				$reverse_external_domain = strstr($settings['reverse_external_fqdn'], '.');
+			} else {
+				$reverse_external_domain = ".{$settings['reverse_external_fqdn']}";
+			}
 			$conf .= "acl OWA_URI_pfs url_regex -i ^http://{$settings['reverse_external_fqdn']}/AutoDiscover/AutoDiscover.xml\n";
 			$conf .= "acl OWA_URI_pfs url_regex -i ^https://{$settings['reverse_external_fqdn']}/AutoDiscover/AutoDiscover.xml\n";
 			$conf .= "acl OWA_URI_pfs url_regex -i ^http://autodiscover{$reverse_external_domain}/AutoDiscover/AutoDiscover.xml\n";
@@ -261,6 +265,59 @@ function squid_resync_reverse() {
 	}
 
 	return $conf;
+}
+
+/* Migrate reverse proxy configuration from old Squid package versions */
+function squid_reverse_upgrade_config() {
+	global $config;
+	if (is_array($config['installedpackages']['squidreverse'])) {
+		$old_reverse_settings = $config['installedpackages']['squidreverse']['config'][0];
+
+		// settings
+		if (!is_array($config['installedpackages']['squidreversegeneral'])) {
+			$config['installedpackages']['squidreversegeneral']['config'][0] = $old_reverse_settings;
+			unset($config['installedpackages']['squidreversegeneral']['config'][0]['reverse_cache_peer']);
+			unset($config['installedpackages']['squidreversegeneral']['config'][0]['reverse_uri']);
+			unset($config['installedpackages']['squidreversegeneral']['config'][0]['reverse_acl']);
+		}
+
+		// peers
+		if (!is_array($config['installedpackages']['squidreversepeer'])) {
+			foreach (explode("\n", sq_text_area_decode($old_reverse_settings['reverse_cache_peer'])) as $cache_peers) {
+				foreach (explode(";", $cache_peers) as $cache_peer) {
+					$config['installedpackages']['squidreversepeer']['config'][] = array(
+						'description' => 'migrated',
+						'enable' => 'on',
+						'name' => $cache_peer[0],
+						'port' => $cache_peer[1],
+						'protocol' => $cache_peer[2]
+					);
+				}
+			}
+		}
+
+		// mappings
+		if (!is_array($config['installedpackages']['squidreverseuri'])) {
+			foreach (explode("\n", sq_text_area_decode($old_reverse_settings['reverse_acl'])) as $acls) {
+				foreach (explode(";", $acls) as $acl) {
+					array_push(${'peer_'.$acl[0]}, $acl[1]);
+				}
+			}
+			foreach (explode("\n", sq_text_area_decode($old_reverse_settings['reverse_uri'])) as $uris) {
+				foreach (explode(";", $uris) as $uri) {
+					$peer_list = (is_array(${'peer_' . $uri[0]}) ? implode(",", ${'peer_' . $uri[0]}) : "");
+					$config['installedpackages']['squidreverseuri']['config'][] = array(
+						'description' => 'migrated',
+						'enable' => 'on',
+						'name' => $uri[0],
+						'uri' => $uri[1],
+						'vhost' => $uri[2],
+						'peers' => $peer_list
+					);
+				}
+			}
+		}
+	}
 }
 
 /* Reverse Proxy Server input validation */

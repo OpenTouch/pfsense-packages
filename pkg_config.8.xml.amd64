@@ -177,7 +177,7 @@
 				Supports ACLs for smart backend switching.]]></descr>
 		<website>http://haproxy.1wt.eu/</website>
 		<category>Services</category>
-		<version>1.5.3 pkg v 0.31</version>
+		<version>1.5.3 pkg v 0.32</version>
 		<status>Release</status>
 		<required_version>2.1</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/haproxy-devel/haproxy.xml</config_file>
@@ -384,7 +384,7 @@
 		<pkginfolink/>
 		<config_file>https://packages.pfsense.org/packages/config/tftp2/tftp.xml</config_file>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
-		<version>2.1</version>
+		<version>2.2.2</version>
 		<status>Stable</status>
 		<required_version>2.0</required_version>
 		<configurationfile>tftp.xml</configurationfile>
@@ -439,8 +439,8 @@
 		<pkginfolink>https://doc.pfsense.org/index.php/vhosts</pkginfolink>
 		<config_file>https://packages.pfsense.org/packages/config/vhosts/vhosts.xml</config_file>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
-		<version>0.7.5</version>
-		<status>Stable</status>
+		<version>0.8.3</version>
+		<status>Beta</status>
 		<required_version>1.2.3</required_version>
 		<maintainer>markjcrane@gmail.com</maintainer>
 		<configurationfile>vhosts.xml</configurationfile>
@@ -611,7 +611,7 @@
 		<descr>High performance web proxy report (LightSquid). Proxy realtime stat (SQStat). Requires squid HTTP proxy.</descr>
 		<website>http://lightsquid.sf.net/</website>
 		<category>Network Report</category>
-		<version>2.41</version>
+		<version>2.42</version>
 		<maintainer>dv_serg@mail.ru</maintainer>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package>lightsquid-1.8_2.tbz</depends_on_package>
@@ -629,6 +629,7 @@
 		<pkginfolink></pkginfolink>
 		<configurationfile>lightsquid.xml</configurationfile>
 		<noembedded>true</noembedded>
+		<after_install_info>Please visit Status - Squid Proxy Reports - Settings and read the configuration and usage instructions.</after_install_info>
 	</package>
 	<package>
 		<name>Sarg</name>
@@ -642,9 +643,9 @@
 		<depends_on_package>sarg-2.3.6_2.tbz</depends_on_package>
 		<depends_on_package>gd-2.0.35_8,1.tbz</depends_on_package>
 		<depends_on_package_pbi>sarg-2.3.6_2-amd64.pbi</depends_on_package_pbi>
-		<version>2.3.6_2 pkg v.0.6.6</version>
+		<version>2.3.6_2 pkg v0.6.7</version>
 		<status>Release</status>
-		<required_version>2.0</required_version>
+		<required_version>2.1</required_version>
 		<configurationfile>sarg.xml</configurationfile>
 		<build_port_path>/usr/ports/www/sarg</build_port_path>
 		<build_options>sarg_UNSET_FORCE=PHP</build_options>
@@ -725,7 +726,7 @@
 		<depends_on_package>vnstat-1.11.tbz</depends_on_package>
 		<depends_on_package_pbi>vnstat-1.11_1-amd64.pbi</depends_on_package_pbi>
 		<build_port_path>/usr/ports/net/vnstat</build_port_path>
-		<version>1.11_1,4</version>
+		<version>1.12.8</version>
 		<status>Stable</status>
 		<required_version>2.0</required_version>
 		<maintainer>bryan.paradis@gmail.com</maintainer>
@@ -754,10 +755,10 @@
 		<descr>pfSense version of TinyDNS which features failover host support</descr>
 		<website>http://cr.yp.to/djbdns.html</website>
 		<category>Services</category>
-		<version>1.0.6.21</version>
+		<version>1.0.6.24</version>
 		<status>Beta</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Tinydns_package</pkginfolink>
-		<required_version>2.0</required_version>
+		<required_version>2.1</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/tinydns/tinydns.xml</config_file>
 		<configurationfile>tinydns.xml</configurationfile>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
@@ -883,7 +884,7 @@
 		<descr>Network UPS Tools</descr>
 		<website>http://www.networkupstools.org/</website>
 		<category>Network Management</category>
-		<version>2.6.5_1 pkg 2.1.0</version>
+		<version>2.6.5_1 pkg 2.1.1</version>
 		<status>BETA</status>
 		<required_version>2.0</required_version>
 		<maintainer>rswagoner@gmail.com</maintainer>
@@ -947,7 +948,7 @@
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package>widentd-1.03_1.tbz</depends_on_package>
 		<depends_on_package_pbi>widentd-1.03_1-amd64.pbi</depends_on_package_pbi>
-		<version>1.03_1</version>
+		<version>1.05</version>
 		<status>Stable</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Widentd_package</pkginfolink>
 		<required_version>1.2.1</required_version>
@@ -987,7 +988,7 @@
 					On pfSense docs there is a how-to which could help you on porting users.]]></descr>
 		<pkginfolink>https://doc.pfsense.org/index.php/FreeRADIUS_2.x_package</pkginfolink>
 		<category>System</category>
-		<version>1.6.14</version>
+		<version>1.6.16</version>
 		<status>RC1</status>
 		<required_version>2.1</required_version>
 		<maintainer>nachtfalkeaw@web.de</maintainer>
@@ -1030,12 +1031,12 @@
 	<package>
 		<name>stunnel</name>
 		<website>http://www.stunnel.org/</website>
-		<descr>An SSL encryption wrapper between remote client and local or remote servers. </descr>
+		<descr>An SSL encryption wrapper between remote client and local or remote servers.</descr>
 		<category>Network Management</category>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package>stunnel-4.43.tbz</depends_on_package>
 		<depends_on_package_pbi>stunnel-4.54-amd64.pbi</depends_on_package_pbi>
-		<version>4.43</version>
+		<version>4.54 pkg v5.20.3</version>
 		<status>Stable</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/Stunnel_package</pkginfolink>
 		<required_version>1.2.1</required_version>
@@ -1127,9 +1128,9 @@
 		<pkginfolink>https://forum.pfsense.org/index.php/topic,48347.0.html</pkginfolink>
 		<website>http://www.squid-cache.org/</website>
 		<category>Network</category>
-		<version>3.1.20 pkg 2.1.3</version>
+		<version>3.1.20 pkg 2.1.4</version>
 		<status>beta</status>
-		<required_version>2.0</required_version>
+		<required_version>2.1</required_version>
 		<maintainer>marcellocoutinho@gmail.com fernando@netfilter.com.br seth.mos@dds.nl mfuchs77@googlemail.com jimp@pfsense.org</maintainer>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package>squid-3.1.20.tbz</depends_on_package>
@@ -1154,9 +1155,9 @@
 		<pkginfolink>https://forum.pfsense.org/index.php/topic,48347.0.html</pkginfolink>
 		<website>http://www.squid-cache.org/</website>
 		<category>Network</category>
-		<version>3.3.10 pkg 2.3.0</version>
+		<version>3.3.10 pkg 2.3.1</version>
 		<status>beta</status>
-		<required_version>2.0</required_version>
+		<required_version>2.1</required_version>
 		<maintainer>marcellocoutinho@gmail.com fernando@netfilter.com.br seth.mos@dds.nl mfuchs77@googlemail.com jimp@pfsense.org</maintainer>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package>squid-3.3.5.tbz</depends_on_package>
@@ -1263,7 +1264,7 @@
 		<website>http://www.squidGuard.org/</website>
 		<maintainer>gugabsd@mundounix.com.br</maintainer>
 		<category>Network Management</category>
-		<version>1.5_1beta pkg v.1.5.6</version>
+		<version>1.5_1beta pkg v1.5.8</version>
 		<status>Beta</status>
 		<required_version>2.1</required_version>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/8/All/</depends_on_package_base_url>
@@ -1296,46 +1297,6 @@
 		<build_options>OPTIONS_SET=FETCH LDAP;squidGuard_UNSET_FORCE=SQUID27;squidGuard_SET=SAMPLE_BL SASL SQUID33;c-icap_UNSET_FORCE=IPV6 squid_UNSET_FORCE=AUTH_SMB AUTH_SQL DNS_HELPER FS_COSS ESI SNMP ECAP STACKTRACES STRICT_HTTP TP_IPF TP_IPFW VIA_DB DEBUG DOCS EXAMPLES;squid_SET=ARP_ACL AUTH_KERB AUTH_LDAP AUTH_NIS AUTH_SASL CACHE_DIGESTS DELAY_POOLS FOLLOW_XFF TP_PF MSSL_CRTD WCCP WCCPV2 FS_AUFS HTCP ICAP ICMP IDENT IPV6 KQUEUE LARGEFILE SSL SSL_CRTD</build_options>
 		<config_file>https://packages.pfsense.org/packages/config/squidGuard/squidguard.xml</config_file>
 		<configurationfile>squidguard.xml</configurationfile>
-	</package>
-	<package>
-		<name>Zabbix Agent</name>
-		<descr>Monitoring agent.</descr>
-		<category>Services</category>
-		<config_file>https://packages.pfsense.org/packages/config/zabbix-agent/zabbix-agent.xml</config_file>
-		<version>1.8.10,2 pkg v1.1</version>
-		<status>FINAL</status>
-		<required_version>1.2.3</required_version>
-		<configurationfile>zabbix-agent.xml</configurationfile>
-		<maintainer>remco.verhoef@redfive.biz</maintainer>
-		<build_port_path>/usr/ports/net-mgmt/zabbix-agent</build_port_path>
-		<build_pbi>
-			<custom_name>zabbix-agent</custom_name>
-			<port>net-mgmt/zabbix-agent</port>
-		</build_pbi>
-		<build_options>ca_root_nss_UNSET_FORCE=ETCSYMLINK;zabbix22_SET=LDAP SSH SQLITE;zabbix22_UNSET_FORCE=MYSQL</build_options>
-		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
-		<depends_on_package>zabbix-agent-1.8.10,2.tbz</depends_on_package>
-		<depends_on_package_pbi>zabbix-agent-1.8.13-amd64.pbi</depends_on_package_pbi>
-	</package>
-	<package>
-		<name>Zabbix Proxy</name>
-		<descr>Monitoring agent proxy.</descr>
-		<category>Services</category>
-		<config_file>https://packages.pfsense.org/packages/config/zabbix-proxy/zabbix-proxy.xml</config_file>
-		<version>1.8.8,2 pkg v1.1</version>
-		<status>FINAL</status>
-		<required_version>1.2.3</required_version>
-		<configurationfile>zabbix-proxy.xml</configurationfile>
-		<maintainer>cmb@pfsense.org</maintainer>
-		<build_port_path>/usr/ports/net-mgmt/zabbix-proxy</build_port_path>
-		<build_pbi>
-			<custom_name>zabbix-proxy</custom_name>
-			<port>net-mgmt/zabbix-proxy</port>
-		</build_pbi>
-		<build_options>ca_root_nss_UNSET_FORCE=ETCSYMLINK;zabbix22_SET=LDAP SSH SQLITE;zabbix22_UNSET_FORCE=MYSQL</build_options>
-		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
-		<depends_on_package>zabbix-proxy-1.8.8,2.tbz</depends_on_package>
-		<depends_on_package_pbi>zabbix-proxy-1.8.13-amd64.pbi</depends_on_package_pbi>
 	</package>
 	<package>
 		<name>OpenVPN Client Export Utility</name>
@@ -1529,10 +1490,10 @@
 	</package>
 	<package>
 		<name>SSHDCond</name>
-		<descr><![CDATA[Allows to define SSH overrides for users,groups,hosts and addresses using Match in a convenient way.<br />
-				This package acts as an access list frontend for ssh connections]]></descr>
+		<descr><![CDATA[Allows to define SSH overrides for users, groups, hosts and addresses using Match in a convenient way.<br />
+				This package acts as an access list frontend for ssh connections.]]></descr>
 		<category>Enhancements</category>
-		<version>1.0.5</version>
+		<version>1.0.6</version>
 		<status>Beta</status>
 		<required_version>2.0</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/sshdcond/sshdcond.xml</config_file>
@@ -1666,7 +1627,7 @@
 			<port>security/tinc</port>
 		</build_pbi>
 		<build_options></build_options>
-		<version>1.0.23 v1.2.2</version>
+		<version>1.0.23 pkg v1.2.4</version>
 		<status>ALPHA</status>
 		<pkginfolink>https://doc.pfsense.org/index.php/tinc_package</pkginfolink>
 		<required_version>2.1</required_version>
@@ -1683,8 +1644,8 @@
 		<website>http://www.balabit.com/network-security/syslog-ng/</website>
 		<descr>Syslog-ng syslog server. This service is not intended to replace the default pfSense syslog server but rather acts as an independent syslog server.</descr>
 		<category>Services</category>
-		<version>3.5.4.1 pkg.v.1.0.2</version>
-		<status>ALPHA</status>
+		<version>3.5.4.1 pkg v1.1.1</version>
+		<status>BETA</status>
 		<required_version>2.1</required_version>
 		<depends_on_package_base_url>https://files.pfsense.org/packages/amd64/8/All/</depends_on_package_base_url>
 		<depends_on_package_pbi>syslog-ng-3.5.4.1-amd64.pbi</depends_on_package_pbi>
@@ -1702,7 +1663,7 @@
 		<descr>Monitoring agent.</descr>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix2/zabbix2-agent.xml</config_file>
-		<version>zabbix2-agent-2.2.5 pkg v0.8.3</version>
+		<version>zabbix2-agent-2.2.5 pkg v0.8.4</version>
 		<status>BETA</status>
 		<required_version>2.0</required_version>
 		<configurationfile>zabbix2-agent.xml</configurationfile>
@@ -1720,7 +1681,7 @@
 		<descr>Monitoring agent proxy.</descr>
 		<category>Services</category>
 		<config_file>https://packages.pfsense.org/packages/config/zabbix2/zabbix2-proxy.xml</config_file>
-		<version>zabbix2-proxy-2.2.5 pkg v0.8.3</version>
+		<version>zabbix2-proxy-2.2.5 pkg v0.8.4</version>
 		<status>BETA</status>
 		<required_version>2.0</required_version>
 		<configurationfile>zabbix2-proxy.xml</configurationfile>
@@ -1758,7 +1719,7 @@
 		<pkginfolink>https://doc.pfsense.org/index.php/Sudo_Package</pkginfolink>
 		<descr><![CDATA[sudo allows delegation of privileges to users in the shell so commands can be run as other users, such as root.]]></descr>
 		<category>Security</category>
-		<version>0.2.3</version>
+		<version>0.2.8</version>
 		<status>Beta</status>
 		<required_version>2.0.2</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/sudo/sudo.xml</config_file>
@@ -1841,7 +1802,7 @@
 		<website>http://suricata-ids.org/</website>
 		<descr><![CDATA[High Performance Network IDS, IPS and Security Monitoring engine by OISF.]]></descr>
 		<category>Security</category>
-		<version>2.0.4 pkg v2.1.4</version>
+		<version>2.0.4 pkg v2.1.8</version>
 		<status>Stable</status>
 		<required_version>2.1</required_version>
 		<config_file>https://packages.pfsense.org/packages/config/suricata/suricata.xml</config_file>

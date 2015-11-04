@@ -1,9 +1,8 @@
 <?php
-
-/* $Id$ */
 /*
-	tinydns_xmlrcpc_sync.php
-	Copyright (C) 2006 Scott Ullrich
+	sudo.priv.inc
+	part of pfSense (http://www.pfSense.org/)
+	Copyright (C) 2015 ESF, LLC
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -27,33 +26,13 @@
 	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 	POSSIBILITY OF SUCH DAMAGE.
 */
+global $priv_list;
 
-/* NOTE: this file gets included from the pfSense filter.inc plugin process */
+$priv_list['page-system-sudo'] = array();
+$priv_list['page-system-sudo']['name'] = "WebCfg - System: sudo package";
+$priv_list['page-system-sudo']['descr'] = "Allow access to sudo package GUI";
+$priv_list['page-system-sudo']['match'] = array();
 
-require_once("config.inc");
-require_once("/usr/local/pkg/tinydns.inc");
-require_once("service-utils.inc");
-
-if($notnow) {
-
-	/* disabled until Ticket #1318 can be fixed */
-
-	if(!$config) {
-	 	log_error("\$config is not enabled from tinydns_xmlrpc_sync.php!!");
-	} else {
-		if($config['installedpackages']['carpsettings']['config'])
-			$password = $config['installedpackages']['carpsettings']['config'][0]['password'];
-		if($config['installedpackages']['carpsettings']['config'])
-			$syncip = $config['installedpackages']['carpsettings']['config'][0]['synchronizetoip'];
-		if($config['installedpackages']['carpsettings']['config'])
-			$syncxmlrpc = $config['installedpackages']['tinydns']['config'][0]['syncxmlrpc'];
-		/* option enabled? */
-		if($syncxmlrpc)
-			if($syncip)
-				if($password)
-					tinydns_do_xmlrpc_sync($syncip, $password);
-	}
-
-}
+$priv_list['page-system-sudo']['match'][] = "pkg_edit.php?xml=sudo.xml*";
 
 ?>
